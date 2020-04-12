@@ -54,6 +54,9 @@ const COUNTER = (function () {
                 paused = true;
             }
         },
+        isPaused: function isPaused() {
+            return paused;
+        },
         finish: function finish() {
             cb(steps - 1);
             window.clearInterval(timer);
@@ -427,6 +430,21 @@ async function runProgram(board, program) {
             }
         }
         return pause_str + ".";
+    }
+}
+
+function pauseProgram() {
+    const pause_button_label = document.getElementById("button_pause_label");
+    const pause_button_icon = document.getElementById("button_pause_icon");
+
+    if (COUNTER.isPaused()) {
+        pause_button_label.innerHTML = "Suspend";
+        pause_button_icon.innerHTML = "pause"
+        COUNTER.pause()
+    } else {
+        pause_button_label.innerHTML = "Resume";
+        pause_button_icon.innerHTML = "play_arrow"
+        COUNTER.pause()
     }
 }
 
@@ -999,7 +1017,7 @@ function init() {
     });
 
     const pause_button = document.getElementsByName("pause")[0];
-    pause_button.addEventListener("click", COUNTER.pause);
+    pause_button.addEventListener("click", pauseProgram);
 
 	var TouchMenu = TouchMenuLA({
 		target: document.getElementById('drawer'),
