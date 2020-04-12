@@ -400,6 +400,18 @@ button.button_wide .material-icons {
     margin-right: -18px;
 }
 
+button.button_wide.button_right .material-icons {
+    font-size: 18px;
+    vertical-align: sub;
+    float: right;
+    margin-left: -18px;
+    margin-right: 0px;
+}
+
+.skip_buttons {
+    display: flex;
+}
+
 button.button_flat {
     color: var(--primary-dark);
     height: 36px;

@@ -1001,6 +1001,16 @@ function init() {
     const pause_button = document.getElementsByName("pause")[0];
     pause_button.addEventListener("click", COUNTER.pause);
 
+    const skip_previous_button = document.getElementById("button_skip_previous");
+    skip_previous_button.addEventListener("click", function(event){
+        console.log("test previous");
+    });
+
+    const skip_next_button = document.getElementById("button_skip_next");
+    skip_next_button.addEventListener("click", function(event){
+        console.log("test next");
+    });
+
 	var TouchMenu = TouchMenuLA({
 		target: document.getElementById('drawer'),
         width: Math.min(Math.min(screen.availWidth, screen.availHeight) - 56, 280),
